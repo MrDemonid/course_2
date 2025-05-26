@@ -1,0 +1,7 @@
+итого 36
+drwxrwxr-x 2 andrey andrey  4096 мая 26 14:25 empty
+-rw-rw-r-- 1 andrey andrey     0 мая 26 14:27 ls.txt
+drwxrwxr-x 2 andrey andrey  4096 мая 26 14:16 __pycache__
+-rw-rw-r-- 1 andrey andrey 18864 мая 25 21:55 readme.txt
+-rw-rw-r-- 1 andrey andrey  1243 мая 26 13:23 work01.py
+-rw-rw-r-- 1 andrey andrey  1106 мая 26 14:27 work02.py

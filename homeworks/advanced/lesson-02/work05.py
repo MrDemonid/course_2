@@ -1,5 +1,6 @@
-from flask import Flask
+import sys
 
+from flask import Flask
 
 app = Flask(__name__)
 
@@ -9,20 +10,21 @@ def str_2_int(n):
         return int(n)
     except ValueError:
         print(f"Warning: value '{n}' is not number!")
-        return 0
+        return -(sys.maxsize - 1)
 
 
 @app.route('/max_number/<path:numbers>')
 def max_number(numbers: str):
-    nums = numbers.split('/')
-    _max = str_2_int(nums[0])
-    for n in nums:
-        k = str_2_int(n)
-        if _max < k:
-            _max = k
-    return f"Максимальное число: {_max}"
+    nums = (str_2_int(it) for it in numbers.split('/'))
+    return f"Максимальное число: <i>{max(nums)}</>"
+
+
+# # Эталон, но не защищен от ошибок.
+# @app.route('/max_number/<path:numbers>')
+# def max_number(numbers: str):
+#     numbers_as_num = (int(it) for it in numbers.split('/'))
+#     return f"Максимальное число: <i>{max(numbers_as_num)}</>"
 
 
 if __name__ == '__main__':
     app.run()
-

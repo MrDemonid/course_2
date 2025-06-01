@@ -1,0 +1,4 @@
+POST http://localhost:5000/sum
+Content-Type: application/x-www-form-urlencoded
+
+a=1&a=2&a=3&b=4&b=5&b=6

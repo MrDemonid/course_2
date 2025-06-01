@@ -1,0 +1,2 @@
+# Доступ к закрытому эндпоинту
+GET http://localhost:10000/pk8000/api/order/test-rabbit

@@ -139,8 +139,10 @@ ps '; ./kill_the_system.sh'
 
 
 ## Общие советы и рекомендации.
-Документация `WTForms`.
-Вызвать программу из `Python` можно с помощью модуля `subprocess` (документация на английском языке, документация на русском языке):
+[Документация `WTForms`.](https://wtforms.readthedocs.io/en/3.0.x/)
+Вызвать программу из `Python` можно с помощью модуля `subprocess` (
+[документация на английском языке](https://docs.python.org/3/library/subprocess.html), 
+[документация на русском языке](https://docs-python.ru/standart-library/modul-subprocess-python/)):
 ```shell
 >>> import shlex, subprocess
     >>> command_str = f"uptime"

@@ -38,6 +38,7 @@ def _sum2():
 def _sum_json():
     data = request.get_json()
 
+    print(data)
     array1 = data.get("a", [])      # данные из ключа "a", или []
     array2 = data.get("b", [])      # данные из ключа "b", или []
 
@@ -48,6 +49,8 @@ def _sum_json():
 @app.route("/sum/json2", methods=["POST"])
 def _sum_json2():
     form_data = request.get_data()
+    print(form_data)
+
     data = json.loads(form_data)
 
     array1 = data.get("a", [])      # данные из ключа "a", или []

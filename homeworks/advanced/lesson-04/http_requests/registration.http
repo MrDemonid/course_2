@@ -1,0 +1,5 @@
+POST http://localhost:5000/registration
+Content-Type: application/x-www-form-urlencoded
+
+email=andnot@yandex.ru&phone=9534452805&name=Andnot&address=Необъятная&index=123456
+

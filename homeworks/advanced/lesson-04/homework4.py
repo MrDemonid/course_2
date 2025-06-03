@@ -20,10 +20,12 @@ def get_uptime():
 
     if system in ('Linux', 'Darwin'):  # Darwin = macOS
         try:
+            # 'uptime' : 14:52:55 up 10 min,  1 user,  load average: 1,56, 1,65, 0,98
+            # 'uptime -p': up 14 minutes
             result = subprocess.run(['uptime', '-p'], stdout=subprocess.PIPE, text=True)
             output = result.stdout.strip()
-            up_part = output.split(" up ")[1].split(",  ")[0]
-            return up_part
+            up_part = output.split("up ")
+            return up_part[1]
         except Exception as e:
             return f"Could not get uptime: {e}"
 
@@ -44,7 +46,7 @@ def get_uptime():
 
 @app.route("/uptime", methods=["GET"])
 def uptime():
-    return f"Current uptime is {get_uptime()}"
+    return f"{get_uptime()}"
 
 
 if __name__ == '__main__':

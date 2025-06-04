@@ -2,9 +2,9 @@ import time
 
 
 def main():
-    print("Start program")
+    print("Start program", flush=True)
     time.sleep(12)
-    print("End program")
+    print("End program", flush=True)
 
 
 if __name__ == '__main__':

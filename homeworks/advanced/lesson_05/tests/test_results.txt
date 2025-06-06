@@ -1,0 +1,19 @@
+test_invalid_stderr (__main__.TestRedirect.test_invalid_stderr)
+Попытка назначить STDERR неверные данные. ... ok
+test_invalid_stdout (__main__.TestRedirect.test_invalid_stdout)
+Попытка назначить STDOUT неверные данные. ... ok
+test_nested_redirects (__main__.TestRedirect.test_nested_redirects)
+Проверяем, что при инициализации менеджера сохраняются предыдущие значения sys.stdout и sys.stderr. ... ok
+test_no_redirect (__main__.TestRedirect.test_no_redirect)
+Проверка без параметров, просто не должно быть ошибок. ... ok
+test_redirect_both (__main__.TestRedirect.test_redirect_both)
+Проверка перенаправления в оба буфера сразу. ... ok
+test_redirect_stderr_with_exception (__main__.TestRedirect.test_redirect_stderr_with_exception)
+Проверяем перенаправление STDERR в наш буфер. ... ok
+test_redirect_stdout (__main__.TestRedirect.test_redirect_stdout)
+Проверяем перенаправление STDOUT в наш буфер. ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.002s
+
+OK

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "D:\Users\Andrey\AppData\PyCharmProjects\course_2\homeworks\advanced\lesson_05\homework4.py", line 76, in <module>
+    raise Exception("Hello stderr.txt")
+Exception: Hello stderr.txt

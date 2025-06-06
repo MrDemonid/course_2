@@ -1,5 +1,8 @@
+# Проверить можно также через curl:
+# curl -X POST http://localhost:5000/run --data "code=import time; print('start test...'); time.sleep(2); print('end test...')&timeout=5"
+
 import subprocess
-import sys
+
 
 from flask import Flask, request
 from flask_wtf import FlaskForm
@@ -34,15 +37,11 @@ def run_code(code: str, timeout: int):
             except subprocess.TimeoutExpired:
                 p.kill()
                 _stdout, _stderr = p.communicate()
-        finally:
-            # это на случай, если перенаправлю stdxxx на PIPE.
-            if _stdout: print("stdout:", _stdout)
-            if _stderr: print("stderr:", _stderr)
 
         return p.returncode, _stdout, _stderr
 
     except FileNotFoundError:
-        print("Не найден интерпритатор Python!")
+        print("Не найден интерпретатор Python!")
     except PermissionError:
         print(f"Нет прав для выполнения: '{code}!")
     except (OSError, ValueError, TypeError) as e:

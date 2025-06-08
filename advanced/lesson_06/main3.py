@@ -1,11 +1,12 @@
 import csv
+import logging
 from typing import Optional
 
 from flask import Flask, request
 from werkzeug.exceptions import InternalServerError
 
-
 app = Flask(__name__)
+
 
 
 @app.route("/bank/<branch>/<int:person_id>")
@@ -24,19 +25,22 @@ def bank_api(branch: str, person_id: int):
 
 @app.errorhandler(InternalServerError)  # 500
 def handle_exception(e: InternalServerError):
+    logger.error(f"Handled uncaught exception")
     # Определяем какая именно ошибка произошла
     original: Optional[Exception] = getattr(e, 'original_exception', None)
 
     if isinstance(original, FileNotFoundError):
-        with open("invalid_error.log", "a", encoding="utf-8") as f:
-            f.write(f"Tried to access {original.filename}. Exception info: {original.strerror}\n")
+        logger.error(f"Tried to access {original.filename}. Exception info: {original.strerror}")
+
     elif isinstance(original, OSError):
-        with open("invalid_error.log", "a", encoding="utf-8") as f:
-            f.write(f"Unable to access a card. Exception info: {original.strerror}\n")
+        logger.error(f"Unable to access a card. Exception info: {original.strerror}")
 
     return "Internal server error", 500
 
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.DEBUG)
+    logger = logging.getLogger(__name__)
+
     app.config['WTF_CSRF_ENABLED'] = False
     app.run()

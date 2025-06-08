@@ -1,0 +1,2 @@
+INFO     [17:49:04] __main__.foo(): foo
+ERROR    [17:49:04] __main__.foo(): error: code = 5

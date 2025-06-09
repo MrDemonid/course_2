@@ -7,6 +7,9 @@ T9_MAPPING = {
 
 
 def digits_to_regex(digits: str) -> str:
+    """
+    Создает паттерн из возможных букв на каждую символьную позицию.
+    """
     parts = [f"[{T9_MAPPING[d]}]" for d in digits]
     return ''.join(parts)
 
